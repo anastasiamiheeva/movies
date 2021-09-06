@@ -1,0 +1,10 @@
+.header__wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__title {
+  text-transform: uppercase;
+  color: #eee;
+  opacity: 0.5;
+}

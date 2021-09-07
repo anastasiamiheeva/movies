@@ -7,13 +7,13 @@ import classes from "./MovieList.module.css"
 const MovieList = ({movies, remove}) => {
     if(!movies.length) {
         return (
-            <h1 style={{textAlign:'center'}}>Фильмы не найдены</h1>
+            <h1 style={{textAlign:'center'}}>Movies not found</h1>
         )
     }
     return (
         <div className={classes.wrap}>
-          <div className={classes.movieItem__wrap}>
-            {movies.map(movie =>
+            <div className={classes.movieItem__wrap}>
+                {movies.map(movie => 
                     <MovieItem
                         key ={movie.id}
                         title={movie.title}
@@ -24,9 +24,8 @@ const MovieList = ({movies, remove}) => {
                         remove={remove}
                         movie={movie}
                     />
-                )} 
-          </div>
-           
+                    )} 
+            </div>
         </div>
     )
 }

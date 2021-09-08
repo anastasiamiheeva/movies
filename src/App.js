@@ -15,23 +15,32 @@ function App() {
   const [movies, setMovies] = useState([])
   const [filter, setFilter] = useState({sort: '', query: ''})
   const [totalPages, setTotalPages] = useState(0)
-  const [limit, setLimit] = useState(50)
+  const [limit, setLimit] = useState(15)
   const [page, setPage] = useState(1)
   const sortedAndSearchedMovies = useMovies(movies, filter.sort, filter.query)
   let pagesArray = getPagesArray(totalPages)
 
-  console.log(pagesArray)
-
+  
+ 
   const [fetchMovies, isMoviesLoading, movieError ] = useFetching(async () => {
     const response = await MovieService.getAll(limit, page)
     setMovies(response.movies)
     const totalCount = response.movie_count;
     setTotalPages(getPageCount(totalCount,limit))
   })
+
+  console.log(totalPages);
   
   useEffect(() => {
-    fetchMovies();
-  }, [])
+    // fetchMovies(limit, page);
+    fetchMovies()
+  }, [page])
+
+  const changePage = (page) => {
+    setPage(page)
+    // fetchMovies(limit, page);
+    
+  }
  
   const removeMovie = (movie) => {
     setMovies(movies.filter(m => m.id !== movie.id))
@@ -52,9 +61,17 @@ function App() {
         />
       
       }
-      {pagesArray.map( p => 
-        <MyButton>{p}</MyButton>
-      )}  
+      <ul className="page__wrapper">
+        {pagesArray.map( p => 
+          <li 
+            className={page === p ? 'page page__current' : 'page'}
+            key={p}
+            onClick={() => changePage(p)}
+          >
+            {p}
+          </li>
+        )}
+      </ul>
     </div>
   );
 }

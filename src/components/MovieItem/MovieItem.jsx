@@ -25,9 +25,13 @@ const MovieItem = (props) => {
                 </div>
 
                 <div className={classes.movie__genre_wrap}>
-                    {props.genres.map((genre, index)=> 
-                        <MovieGenre key={index} genre={genre}/>
-                    )}
+
+                    {!props.genres
+                    ? <div></div>
+                    : props.genres.map((genre, index)=> 
+                    <MovieGenre key={index} genre={genre}/>
+                )
+                }
                 </div>
             </div>
             <div className={classes.movie__btns_wrap}>

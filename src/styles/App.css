@@ -23,3 +23,21 @@ body {
     flex-direction: column;  
 }
 
+/*pagination*/
+.page__wrapper {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.page {
+    color: #ccc;
+    padding: 10px;
+    border: 1px solid teal;
+    cursor: pointer;
+}
+
+.page__current {
+    border: 2px solid orange;
+    font-weight: bold;
+}

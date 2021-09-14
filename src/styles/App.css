@@ -24,39 +24,4 @@ body {
 }
 
 /*pagination*/
-.page__wrapper {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-}
 
-.page {
-    color: #ccc;
-    padding: 10px;
-    border: 1px solid teal;
-    cursor: pointer;
-}
-
-.page__current {
-    border: 3px solid #ccc;
-    font-weight: bold;
-}
-
-.page__button {
-    border: 1px solid teal;
-    background: transparent;
-    color: #ccc;
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 10px;
-}
-
-.page__button:hover {
-    background: teal;
-    
-    
-}
-
-.page__button:focus {
-    outline: none;
-}

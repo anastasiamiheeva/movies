@@ -1,4 +1,6 @@
 .search__wrap {
+  width: 40%;
   display: flex;
   justify-content: center;
 }
+

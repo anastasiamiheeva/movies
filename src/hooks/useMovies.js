@@ -13,7 +13,7 @@ export const useSortedMovies = (movies, sort) => {
 export const useMovies = (movies, sort, query) => {
   const sortedMovies = useSortedMovies(movies, sort)
   const sortedAndSearchedMovies = useMemo(() => {
-    return sortedMovies.filter(movie => movie.title.toLowerCase().includes(query.toLowerCase()))
+    return sortedMovies.filter(movie => movie.title.toLowerCase().startsWith(query.toLowerCase()))
   }, [query, sortedMovies])
   return sortedAndSearchedMovies;
 }

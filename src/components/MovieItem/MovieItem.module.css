@@ -15,7 +15,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
   text-align: center;
   color: #ccc;
   font-weight: bold;
@@ -44,12 +43,17 @@
 }
 
 .movie__info {
+  width: 100%;
+}
+
+.movie__img_wrap {
   
 }
 
 .movie__img {
   width: 230px;
   height: 345px; 
+  max-width: 100%;
 }
 
 .movie__btns_wrap {

@@ -1,6 +1,7 @@
 import React from "react";
 import MyButton from "../UI/button/MyButton";
 import classes from './MovieItem.module.css'
+import img from '../../img/noPhoto.png'
 
 const MovieGenre = ({ genre }) => {
     return (
@@ -15,8 +16,13 @@ const MovieItem = (props) => {
         <div className={classes.movie}>
             <div className={classes.movie__info}>
                 
-                <div className={classes.movie__img}>
-                    <img  src={props.img} alt={props.title}/>
+                <div className={classes.movie__img_wrap}>
+                    {!props.img
+                        ?<img className={classes.movie__img} src={img} alt={props.title}/>
+                        :<img className={classes.movie__img} src={props.img} alt={props.title}/>
+                    
+                    }
+                    
                 </div>
                 <div className={classes.movie__title}>{props.title}</div>
                 <div>

@@ -9,6 +9,19 @@ const Pagination = ({totalPages, page, setPage, changePage}) => {
   const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(7)
   const [minPageNumberLimit, setMinPageNumberLimit] = useState(1)
 
+  const handleToTheEnd = () => {
+    setPage(totalPages)
+    setMaxPageNumberLimit(totalPages + 1)
+    setMinPageNumberLimit(totalPages - numberLimit)
+  }
+
+
+  const handleToTheStart = () => {
+    setPage(pagesArray[0])
+    setMaxPageNumberLimit(7)
+    setMinPageNumberLimit(1)
+  }
+
   const handleNextBtn = () => {
     setPage(page + 1)
     if(page + 1 >= maxPageNumberLimit) {
@@ -35,6 +48,16 @@ const Pagination = ({totalPages, page, setPage, changePage}) => {
     pageDecrementBtn = <li className={cl.page} onClick={handlePrevBtn}>&hellip;</li>
   }
 
+  let pageToTheEndBtn = null;
+  if(totalPages > maxPageNumberLimit) {
+    pageToTheEndBtn = <li className={cl.page} onClick={handleToTheEnd}>&raquo;</li>
+  }
+
+  let pageToStartEndBtn = null;
+  if(minPageNumberLimit > 1) {
+    pageToStartEndBtn = <li className={cl.page} onClick={handleToTheStart}>&laquo;</li>
+  }
+
   return (
     <div className={cl.pagination__wrap}>
       <ul className={cl.page__wrapper}>
@@ -46,6 +69,7 @@ const Pagination = ({totalPages, page, setPage, changePage}) => {
             >
               Prev</button>
           </li> 
+          {pageToStartEndBtn}
           {pageDecrementBtn}
           {pagesArray.map( p => 
             p < maxPageNumberLimit && p >= minPageNumberLimit
@@ -59,6 +83,7 @@ const Pagination = ({totalPages, page, setPage, changePage}) => {
             : null
           )}
           {pageIncrementBtn}
+          {pageToTheEndBtn}
           <li>
             <button 
                 disabled={page === pagesArray[pagesArray.length - 1] ? true : false}

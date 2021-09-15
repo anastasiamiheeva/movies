@@ -17,11 +17,10 @@ const MovieList = ({movies, remove}) => {
                     <MovieItem
                         key ={movie.id}
                         title={movie.title}
-                        img={movie.medium_cover_image}
+                        img={movie.large_cover_image}
                         genres={movie.genres}
                         year={movie.year}
                         rating={movie.rating}
-                        remove={remove}
                         movie={movie}
                     />
                     )} 

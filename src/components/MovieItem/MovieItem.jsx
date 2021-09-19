@@ -32,9 +32,9 @@ const MovieItem = (props) => {
                 }
                 </div>
             </div>
-            {/* <div className={classes.movie__btns_wrap}>
+            <div className={classes.movie__btns_wrap}>
                 <MyButton className={classes.movie__btn}>Открыть</MyButton>
-            </div> */}
+            </div> 
         </div>
     )
 }

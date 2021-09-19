@@ -1,12 +1,22 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import { BrowserRouter, Link, Route, Switch, Redirect } from 'react-router-dom';
+import AppRouter from './components/AppRouter';
 
-import Movies from './pages/Movies'
 
 
 function App() {
  
   return (
-    <Movies/>
+    <BrowserRouter>
+      <div className="navbar">
+        <div className="navbar__links">
+          <Link to="/movies">Movies</Link>
+          <Link to="/auth">Auth</Link>
+        </div>
+      </div>
+      <AppRouter/> 
+    </BrowserRouter>
+    
   )
 }
 

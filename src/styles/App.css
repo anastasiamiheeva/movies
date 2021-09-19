@@ -23,5 +23,16 @@ body {
     flex-direction: column;  
 }
 
-/*pagination*/
+.navbar {
+    height: 50px;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    background: rgba(42,53,62, 0.1);
+}
+
+.navbar__links {
+    margin-left: auto;
+}
 

@@ -21,6 +21,7 @@ const MovieList = ({movies, remove}) => {
                         genres={movie.genres}
                         year={movie.year}
                         rating={movie.rating}
+                        id={movie.id}
                         movie={movie}
                     />
                     )} 

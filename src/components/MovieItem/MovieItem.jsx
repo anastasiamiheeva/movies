@@ -2,6 +2,7 @@ import React from "react";
 import MyButton from "../UI/button/MyButton";
 import classes from './MovieItem.module.css'
 import Img from "../Img/Img";
+import { useHistory } from "react-router";
 
 const MovieGenre = ({ genre }) => {
     return (
@@ -12,6 +13,7 @@ const MovieGenre = ({ genre }) => {
 };
 
 const MovieItem = (props) => {
+    const router = useHistory()
     return (
         <div className={classes.movie}>
             <div className={classes.movie__info}>
@@ -33,7 +35,7 @@ const MovieItem = (props) => {
                 </div>
             </div>
             <div className={classes.movie__btns_wrap}>
-                <MyButton className={classes.movie__btn}>Открыть</MyButton>
+                <MyButton onClick={() => router.push(`/movies/${props.id}`) } className={classes.movie__btn}>Открыть</MyButton>
             </div> 
         </div>
     )

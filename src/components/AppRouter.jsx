@@ -1,15 +1,19 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router';
-import MoviePage from '../pages/MoviePage';
-import Movies from '../pages/Movies';
-import Auth from './Auth/Auth';
+import { routes } from '../router/router';
+
 
 const AppRouter = () => {
   return (
     <Switch>
-      <Route path="/auth"><Auth/></Route>
-      <Route exact path="/movies"><Movies/></Route>
-      <Route exact path="/movies/:id"><MoviePage/></Route>
+      {routes.map(route =>
+        <Route 
+          component={route.component} 
+          path={route.path} 
+          exact={route.exact}
+          key={route.path}
+        />
+      )}
       <Redirect to="/movies"/>
     </Switch>
   );

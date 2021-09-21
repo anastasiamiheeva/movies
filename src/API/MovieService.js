@@ -8,7 +8,6 @@ export default class MovieService {
         page: page
       }
     })
-    console.log(response.data.data.movies)
     return response.data.data
   }
 

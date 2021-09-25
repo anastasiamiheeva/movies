@@ -1,0 +1,10 @@
+.wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid red;
+}
+
+.movie__info {
+  width: 60%;
+}

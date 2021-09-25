@@ -1,5 +1,5 @@
 import Auth from "../components/Auth/Auth";
-import MoviePage from "../pages/MoviePage";
+import MoviePage from "../pages/MoviePage/MoviePage";
 import Movies from "../pages/Movies";
 
 export const routes = [

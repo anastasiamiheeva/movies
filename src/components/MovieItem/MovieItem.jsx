@@ -1,43 +1,47 @@
 import React from "react";
-import MyButton from "../UI/button/MyButton";
-import classes from './MovieItem.module.css'
+import cl from './MovieItem.module.css'
 import Img from "../Img/Img";
-import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
 
 const MovieGenre = ({ genre }) => {
     return (
-        <div className={classes.movie__genre}>
+        <div className={cl.movie__genre}>
             <span>{genre}</span>
         </div>
     );
 };
 
 const MovieItem = (props) => {
-    const router = useHistory()
     return (
-        <div className={classes.movie}>
-            <div className={classes.movie__info}>
-                <Img img={props.img} title={props.title}/>
-
-                <div className={classes.movie__title}>{props.title}</div>
-                <div>
-                    <div className={classes.movie__rating}><i className="far fa-star"/> {props.rating}</div>
-                    <div className={classes.movie__year}>{props.year}</div>
+    <>
+      <div className={cl.movie}>
+          <div>
+            <div>
+              <div className={cl.img}>
+                <div className={cl.over__img_info}>
+                  <Link className={cl.link} to={`/movies/${props.id}`}>
+                    <div className={cl.more}>Show more</div>
+                  </Link>
+                  <div className={cl.rating}>
+                    <i className="far fa-star"/>
+                    <span>
+                      {props.rating === 0 ? "0" : props.rating.toFixed(1)}
+                    </span>
+                  </div>
+                  <div className={cl.genres}>
+                    {props.genres.slice(0,3).map((genre,index) => (
+                      <MovieGenre key={index} genre={genre}/>
+                    ))}
+                  </div>
                 </div>
-
-                <div className={classes.movie__genre_wrap}>
-                    {!props.genres
-                    ? <div></div>
-                    : props.genres.slice(0,3).map((genre, index)=> 
-                    <MovieGenre key={index} genre={genre}/>
-                )
-                }
-                </div>
+                <Img img={props.img} alt={props.title}/>
+              </div>
             </div>
-            <div className={classes.movie__btns_wrap}>
-                <MyButton onClick={() => router.push(`/movies/${props.id}`) } className={classes.movie__btn}>Открыть</MyButton>
-            </div> 
-        </div>
+          </div>
+          <div className={cl.title}>{props.title}</div>
+          <div className={cl.year}>{props.year}</div>
+      </div>
+    </>
     )
 }
 

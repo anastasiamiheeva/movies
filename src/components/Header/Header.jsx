@@ -1,12 +1,12 @@
 import React from 'react';
-import MovieFilter from '../MovieFilter/MovieFilter';
+import SearchForm from '../SearchForm/SearchForm';
 import classes from './Header.module.css'
 
-const Header = ({filter, setFilter}) => {
+const Header = ({movies}) => {
   return (
     <div className={classes.header__wrap}>
       <h1 className={classes.header__title}>Movies</h1>
-      <MovieFilter filter={filter} setFilter={setFilter}/>
+      <SearchForm movies={movies}/>
     </div>
   );
 };

@@ -18,7 +18,7 @@ const MovieGenre = ({ genre }) => {
 
 const MoviePage = () => {
   const params = useParams();
-  const [movie, setMovie] = useState({});
+  const [movie, setMovie] = useState([]);
   const [fetchMovieId, isLoading, error ] = useFetching(async () => {
     const response = await MovieService.getById(params.id)
     setMovie(response.movie)
@@ -32,29 +32,30 @@ const MoviePage = () => {
     <div>
       {isLoading 
         ? <Loader/>
-        : <div className={cl.wrap}>
-            <div className={cl.img}>
-              <Img img={movie.large_cover_image} title={movie.title}/>
+        : <div className={cl.movie_page}>
+            <div className={cl.movie_info}>
+              <div className={cl.movie__img}>
+                <Img img={movie.large_cover_image} title={movie.title}/>
+              </div>
+              <div className={cl.movie_description}>
+                <div className={cl.movie_title}>
+                  <h1>{movie.title_long}</h1>
+                </div>
+                <div className={cl.movie_genre}>
+                  {!movie.genres
+                    ? <div></div>
+                    : movie.genres.slice(0,3).map((genre, index)=> 
+                    <MovieGenre key={index} genre={genre}/>
+                    )
+                  }
+                </div>
+                <div className={cl.movie_about}>
+                  <p>{movie.description_full}</p>
+                </div>
+                <MovieComents params={params}/> 
+              </div>
             </div>
-            <div className={cl.movie__info}>
-              <div>
-                <h1>{movie.title_long}</h1>
-              </div>
-              <div>
-                {!movie.genres
-                  ? <div></div>
-                  : movie.genres.slice(0,3).map((genre, index)=> 
-                  <MovieGenre key={index} genre={genre}/>
-                  )
-                }
-              </div>
-              
-              <div>
-                <p>{movie.description_full}</p>
-              </div>
-
-              <MovieComents params={params}/>
-            </div> 
+            
           </div>
       }
     </div>

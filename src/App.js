@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { BrowserRouter, Link, Route, Switch, Redirect } from 'react-router-dom';
 import AppRouter from './components/AppRouter';
-import MyButton from './components/UI/button/MyButton';
 import Navbar from './components/UI/Navbar/Navbar';
 import { AuthContext } from './context/context';
 

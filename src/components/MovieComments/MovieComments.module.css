@@ -1,0 +1,33 @@
+
+.comments {
+  width: 100%;
+  padding: 20px;
+}
+
+.comments_list {
+  max-height: 200px;
+  overflow-y: scroll;
+  margin-bottom: 20px;
+  padding-right: 5px;
+}
+
+.comments__form {
+  padding: 10px; 
+}
+
+.textarea {
+  width: 70%;
+}
+
+
+.textarea textarea {
+  width: 100%;
+  outline: none;
+  resize: none;
+  padding: 5px;
+  font-size: 15px;
+  background: #ccc;
+  border-radius: 5px;
+  color: #41474C;
+}
+

@@ -1,10 +1,28 @@
-.wrap {
+.movie_page {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: 1px solid red;
+  color: #ccc;
+  overflow-x: hidden;
+  width: 100%;
 }
 
-.movie__info {
-  width: 60%;
+.movie__img {
+  border: 1px solid green;
+}
+
+.movie_info {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid blue;
+  justify-content: space-between;
+}
+
+.movie_description {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid red;
+  width: 70%;
+}
+
+.movie_about {
+  
 }

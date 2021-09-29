@@ -21,6 +21,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow-x: hidden;
 }
 .App {
     display: flex;
@@ -41,3 +42,18 @@ body {
     margin-left: auto;
 }
 
+/* scroll */
+::-webkit-scrollbar {
+    width: 8px;
+    background: #41474C;
+    border-radius: 5px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: teal;
+    width: 2px;
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-corner{
+    background: #41474C;
+  }

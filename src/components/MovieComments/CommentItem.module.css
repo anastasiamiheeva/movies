@@ -1,0 +1,34 @@
+.comment {
+  background: rgba(204,204,204, 0.2);
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+.comment_info {
+  display: flex;
+  font-size: 15px;
+  align-items: center;
+  margin-bottom: 5px;
+  color: #ccc;
+}
+
+.comment_author {
+  margin-right: 10px;
+}
+
+.comment_text {
+  color: #ccc;
+}
+
+.comment__btn_wrap {
+  text-align: end;
+}
+.comment_btn {
+  background: transparent;
+  border: none;
+  margin-right: 5px;
+  cursor: pointer;
+  color: #ccc;
+}

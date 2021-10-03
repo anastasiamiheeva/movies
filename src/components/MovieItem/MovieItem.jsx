@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import cl from './MovieItem.module.css'
 import Img from "../Img/Img";
-import { Link } from "react-router-dom";
+import ContentModal from "../UI/ContentModal/ContentModal";
+import MoviePage from "../../pages/MoviePage/MoviePage";
 
 const MovieGenre = ({ genre }) => {
     return (
@@ -12,16 +13,19 @@ const MovieGenre = ({ genre }) => {
 };
 
 const MovieItem = (props) => {
+  const [modal, setModal] = useState(false);
+
     return (
     <>
-      <div className={cl.movie}>
+      <ContentModal visible={modal} setVisible={setModal}>
+        <MoviePage id={props.id}/>
+      </ContentModal>
+        <div className={cl.movie}>
           <div>
             <div>
               <div className={cl.img}>
                 <div className={cl.over__img_info}>
-                  <Link className={cl.link} to={`/movies/${props.id}`}>
-                    <div className={cl.more}>Show more</div>
-                  </Link>
+                  <button className={cl.more} onClick={() => setModal(true)}>Show more</button>
                   <div className={cl.rating}>
                     <i className="far fa-star"/>
                     <span>

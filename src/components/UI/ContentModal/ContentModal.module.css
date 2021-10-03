@@ -1,0 +1,23 @@
+.page_modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: none;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.page_modal_content {
+  padding: 20px;
+  background: rgb(30,38,44);
+  border-radius: 16px;
+  min-width: 250px;
+}
+
+.page_modal.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}

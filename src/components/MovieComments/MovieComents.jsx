@@ -4,12 +4,10 @@ import CommentItem from './CommentItem';
 import cl from './MovieComments.module.css';
 
 
-const MovieComents = ({params}) => {
-  const movieId = params.id
-  console.log(movieId)
+const MovieComents = ({id}) => {
+  const movieId = id;
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('')
-  console.log('comments',comments)
 
   const getLSComments = (movieId) => {
     const localStorageComments = localStorage.getItem("comments");

@@ -4,6 +4,7 @@ import MovieService from '../../API/MovieService';
 import Img from '../../components/Img/Img';
 import MovieComents from '../../components/MovieComments/MovieComents';
 import Loader from '../../components/UI/Loader/Loader';
+import Navbar from '../../components/UI/Navbar/Navbar';
 import { useFetching } from '../../hooks/useFetching';
 import cl from './MoviePage.module.css'
 
@@ -16,11 +17,10 @@ const MovieGenre = ({ genre }) => {
   );
 };
 
-const MoviePage = () => {
-  const params = useParams();
+const MoviePage = ({ id }) => {
   const [movie, setMovie] = useState([]);
   const [fetchMovieId, isLoading, error ] = useFetching(async () => {
-    const response = await MovieService.getById(params.id)
+    const response = await MovieService.getById(id)
     setMovie(response.movie)
   })
   
@@ -29,7 +29,7 @@ const MoviePage = () => {
   }, [])
 
   return (
-    <div>
+    <div className={cl.page_wrap}>
       {isLoading 
         ? <Loader/>
         : <div className={cl.movie_page}>
@@ -52,7 +52,7 @@ const MoviePage = () => {
                 <div className={cl.movie_about}>
                   <p>{movie.description_full}</p>
                 </div>
-                <MovieComents params={params}/> 
+                <MovieComents id={id}/> 
               </div>
             </div>
             

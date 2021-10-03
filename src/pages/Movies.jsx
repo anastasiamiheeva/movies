@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useHistory } from 'react-router'
 import MovieService from '../API/MovieService'
 import Header from '../components/Header/Header'
 import MovieList from '../components/MovieList/MovieList'

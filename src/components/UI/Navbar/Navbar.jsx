@@ -1,28 +1,15 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import { AuthContext } from '../../../context/context';
-import MyButton from '../button/MyButton';
+import { Link, useHistory } from 'react-router-dom';
+import cl from './Navbar.module.css';
 
 const Navbar = () => {
-  const {isAuth, setIsAuth} = useContext(AuthContext)
-  const logout = () => {
-    setIsAuth(false)
-    localStorage.removeItem('auth')
-  }
+  const router = useHistory()
   return (
-    <div className="navbar">
-          
-          <div className="navbar__links">
-            { isAuth 
-              ? <>
-              <Link to="/movies">Movies</Link>
-              <MyButton onClick={logout}>Выйти</MyButton></>
-              : <> 
-              <Link to="/movies">Movies</Link>
-              <Link to="/auth">Войти</Link></>
-            }
-          </div>
-        </div>
+    <div className={cl.navbar}>
+      <div className={cl.navbar__links}>
+        <button onClick={() => router.goBack() }>Back</button>
+      </div>
+    </div>
   );
 };
 

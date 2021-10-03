@@ -11,9 +11,6 @@
   border-radius: 10px;
 
 }
-.link {
-  text-decoration: none;
-}
 
 .img {
   position: relative;
@@ -53,7 +50,10 @@
 }
 
 .more {
-  text-align: center; 
+  background: transparent;
+  border:none;
+  outline: none;
+  cursor: pointer;
   width: 70%;
   top: 0px;
   left: 50%;

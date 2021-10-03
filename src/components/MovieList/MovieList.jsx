@@ -4,7 +4,7 @@ import classes from "./MovieList.module.css"
 
 
 
-const MovieList = ({movies, remove}) => {
+const MovieList = ({movies}) => {
     if(!movies.length) {
         return (
             <h1 style={{textAlign:'center'}}>Movies not found</h1>

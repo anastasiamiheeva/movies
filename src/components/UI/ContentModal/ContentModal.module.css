@@ -9,10 +9,13 @@
 }
 
 .page_modal_content {
+  border: 2px solid teal;
   padding: 20px;
   background: rgb(30,38,44);
   border-radius: 16px;
   min-width: 250px;
+  max-width: 900px;
+  max-height: 500px;
 }
 
 .page_modal.active {

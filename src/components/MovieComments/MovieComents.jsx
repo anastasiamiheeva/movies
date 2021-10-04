@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import MyButton from '../UI/button/MyButton';
 import CommentItem from './CommentItem';
 import cl from './MovieComments.module.css';
 
@@ -8,11 +7,11 @@ const MovieComents = ({id}) => {
   const movieId = id;
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('')
+  console.log(comments)
 
   const getLSComments = (movieId) => {
     const localStorageComments = localStorage.getItem("comments");
     const commentsInLS = JSON.parse(localStorageComments) || [];
-    
     const lSCurrentMovie = commentsInLS.find((comment) => comment.movieId === movieId) || 
       { movieId: movieId, comments: [] };
     
@@ -79,7 +78,6 @@ const MovieComents = ({id}) => {
 
   return (
     <div className={cl.comments}>
-      <div className={cl.title}>Коментарии</div>
       <div className={cl.comments_list}>
         {comments.length
           ? comments.map((comment) => (
@@ -93,7 +91,7 @@ const MovieComents = ({id}) => {
                 func={deleteComment}  
               />
             ))
-          : "No comments"}
+          : <div style={{textAlign: 'center'}}>No comments</div>}
       </div>
       <div className={cl.comments__form}>
         <form onSubmit={handleSubmit}>
@@ -106,11 +104,12 @@ const MovieComents = ({id}) => {
                 onChange={(e) => setNewComment(e.target.value)}
               ></textarea>
             </div>
-            <div className={cl.button}>
-              <MyButton 
+            <div>
+              <button
+                className={cl.button} 
                 type="submit"
                 disabled={!newComment}
-              >Add comment</MyButton>
+              ><i className="fa fa-share" aria-hidden="true"></i></button>
             </div>
           </div>
         </form>

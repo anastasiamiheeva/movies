@@ -35,12 +35,7 @@ const MoviePage = ({ id }) => {
         : <div className={cl.movie_page}>
             <div className={cl.movie_info}>
               <div className={cl.movie__img}>
-                <Img img={movie.large_cover_image} title={movie.title}/>
-              </div>
-              <div className={cl.movie_description}>
-                <div className={cl.movie_title}>
-                  <h1>{movie.title_long}</h1>
-                </div>
+                <Img img={movie.large_cover_image} alt={movie.title}/>
                 <div className={cl.movie_genre}>
                   {!movie.genres
                     ? <div></div>
@@ -49,6 +44,12 @@ const MoviePage = ({ id }) => {
                     )
                   }
                 </div>
+              </div>
+              <div className={cl.movie_description}>
+                <div className={cl.movie_title}>
+                  <h1>{movie.title_long}</h1>
+                </div>
+                
                 <div className={cl.movie_about}>
                   <p>{movie.description_full}</p>
                 </div>

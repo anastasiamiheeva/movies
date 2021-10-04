@@ -9,12 +9,17 @@
   width: 100%;
 }
 
+.movie_title {
+  margin-bottom: 10px;
+}
+
 .movie__img {
   border: 1px solid green;
 }
 
 .movie_info {
   display: flex;
+  height: 100%;
   flex-wrap: wrap;
   border: 1px solid blue;
   justify-content: space-between;
@@ -23,10 +28,17 @@
 .movie_description {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   border: 1px solid red;
   width: 70%;
+  
 }
 
+
+
 .movie_about {
-  
+  width: 95%;
+  max-height: 150px;
+  overflow-y: scroll;
 }

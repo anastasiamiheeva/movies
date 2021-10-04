@@ -5,7 +5,7 @@
 }
 
 .comments_list {
-  max-height: 200px;
+  max-height: 100px;
   overflow-y: scroll;
   margin-bottom: 20px;
   padding-right: 5px;
@@ -15,10 +15,31 @@
   padding: 10px; 
 }
 
-.textarea {
-  width: 70%;
+
+.comments__form_in {
+  display: flex;
+  align-items: center;
 }
 
+.textarea {
+  width: 70%;
+  height: 50px;
+}
+
+.button {
+  border: 1px solid #41474C;
+  border-radius: 5px;
+  background: transparent;
+  cursor: pointer;
+  padding: 8px;
+  margin-left: 10px;
+}
+
+.button i {
+  color: teal;
+  font-size: 30px;
+
+}
 
 .textarea textarea {
   width: 100%;

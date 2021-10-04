@@ -8,8 +8,8 @@ const ContentModal = ({children, visible, setVisible}) => {
     rootClasses.push(cl.active)
   }
   return (
-    <div className={rootClasses.join(' ')}>
-      <div className={cl.page_modal_content}>
+    <div className={rootClasses.join(' ')} onClick={() => setVisible(false)}>
+      <div className={cl.page_modal_content} onClick={e => e.stopPropagation()}>
         {children}
       </div>
     </div>

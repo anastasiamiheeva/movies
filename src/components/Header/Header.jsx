@@ -1,12 +1,8 @@
 import React from 'react';
-import classes from './Header.module.css'
+import cl from './Header.module.css'
 
-const Header = ({movies}) => {
-  return (
-    <div className={classes.header__wrap}>
-      <h1 className={classes.header__title}>Movies</h1>
-    </div>
-  );
+const Header = () => {
+  return <span onClick={() => window.scroll(0,0)} className={cl.header}>Movies</span>
 };
 
 export default Header;

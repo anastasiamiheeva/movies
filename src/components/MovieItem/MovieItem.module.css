@@ -5,15 +5,24 @@
   padding: 15px;
   width: 264px;
   box-shadow: -3px 2px 32px 0px rgba(0,128,128,0.75);
-  margin-top: 15px;
+  margin: 10px;
   align-items: center;
   background: rgba(42,53,62, 0.1);
   border-radius: 10px;
+  font-family: "Montserrat", sans-serif;
 
+}
+
+.movie__img {
+  width: 230px;
+  height: 345px; 
+  max-width: 100%;
+  
 }
 
 .img {
   position: relative;
+  
 }
 
 .over__img_info {
@@ -29,6 +38,7 @@
   flex-direction: column;
   justify-content: space-between;
   padding-top: 35px;
+  font-weight: bold;
 }
 
 .rating {
@@ -62,6 +72,8 @@
   font-size: 28px;
   color: #eee;
   transition: 0.8s ease;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
 }
 
 .img:hover .more {
@@ -90,3 +102,8 @@
   color: #ccc;
 }
 
+@media (max-width: 550px) {
+  .movies {
+    width: 46%;
+  }
+}

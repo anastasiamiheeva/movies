@@ -1,49 +1,46 @@
 import React, { useState } from "react";
+import { img_300, unavailable } from "../../config/config";
 import cl from './MovieItem.module.css'
-import Img from "../Img/Img";
-import ContentModal from "../UI/ContentModal/ContentModal";
-import MoviePage from "../../pages/MoviePage/MoviePage";
 
-const MovieGenre = ({ genre }) => {
-    return (
-        <div className={cl.movie__genre}>
-            <span>{genre}</span>
-        </div>
-    );
-};
 
-const MovieItem = (props) => {
-  const [modal, setModal] = useState(false);
 
+const MovieItem = ({
+  title,
+  img,
+  genres,
+  year,
+  rating,
+  id,
+  media_type,
+}) => {
     return (
     <>
-      <ContentModal visible={modal} setVisible={setModal}>
-        <MoviePage id={props.id}/>
-      </ContentModal>
         <div className={cl.movie}>
           <div>
             <div>
               <div className={cl.img}>
                 <div className={cl.over__img_info}>
-                  <button className={cl.more} onClick={() => setModal(true)}>Show more</button>
+                  <button className={cl.more}>Show more</button>
                   <div className={cl.rating}>
                     <i className="far fa-star"/>
                     <span>
-                      {props.rating === 0 ? "0" : props.rating.toFixed(1)}
+                    {rating === 0 ? "0" : rating.toFixed(1)}
                     </span>
                   </div>
-                  <div className={cl.genres}>
-                    {props.genres.slice(0,3).map((genre,index) => (
-                      <MovieGenre key={index} genre={genre}/>
-                    ))}
-                  </div>
                 </div>
-                <Img img={props.img} alt={props.title}/>
+                <div>
+                  <img 
+                    className={cl.movie__img} 
+                    src={ img ? `${img_300}/${img}` : unavailable} 
+                    alt={title}
+                  />
+                </div>
+                
               </div>
             </div>
           </div>
-          <div className={cl.title}>{props.title}</div>
-          <div className={cl.year}>{props.year}</div>
+          <div className={cl.title}>{title}</div>
+          <div className={cl.year}>{year}</div>
       </div>
     </>
     )

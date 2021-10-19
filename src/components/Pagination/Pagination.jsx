@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import { getPagesArray } from '../../utils/pages';
 import cl from './Pagination.module.css'
 
-const Pagination = ({totalPages, page, setPage}) => {
+const Pagination = ({totalPages = 10, page, setPage }) => {
   let pagesArray = getPagesArray(totalPages)
-
   const changePage = (page) => {
     setPage(page)
     window.scroll(0,0)
@@ -65,8 +64,7 @@ const Pagination = ({totalPages, page, setPage}) => {
 
   return (
     <div className={cl.pagination__wrap}>
-      Pagination
-      {/* <ul className={cl.page__wrapper}>
+      <ul className={cl.page__wrapper}>
           <li>
               <button 
               disabled={page === pagesArray[0] ? true : false}
@@ -97,7 +95,7 @@ const Pagination = ({totalPages, page, setPage}) => {
                 onClick={handleNextBtn}
             >Next</button>
           </li>
-        </ul> */}
+        </ul>
     </div>
   );
 };

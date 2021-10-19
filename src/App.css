@@ -24,15 +24,30 @@
   color: #eee;
 }
 
+
+
+@media (max-width: 1000px) {
+  .pageTitle {
+    font-size: 1.5vw;
+  }
+}
+
 @media (max-width: 700px) {
   .App {
     padding-top: 70px;
   }
 }
 
-@media (max-width: 1000px) {
-  .pageTitle {
-    font-size: 2vw;
+@media (max-width: 400px) {
+  .App {
+    padding-top: 60px;
   }
+}
+
+
+.MuiChip-label {
+  margin: 3px;
+  color: teal;
+
 }
 

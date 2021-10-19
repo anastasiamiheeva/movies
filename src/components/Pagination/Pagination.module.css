@@ -31,6 +31,7 @@
   font-size: 1.5rem;
   cursor: pointer;
   padding: 10px;
+  font-family: "Montserrat", sans-serif;
 }
 
 .page__button:hover {

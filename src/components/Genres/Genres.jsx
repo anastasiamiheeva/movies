@@ -13,8 +13,8 @@ const Genres = ({
 }) => {
 
   const handleAdd = (genre) => {
-    setGenres(genres.filter((g) => g.id !== genre.id));
     setSelectedGenres([...selectedGenres, genre]);
+    setGenres(genres.filter((g) => g.id !== genre.id));
     setPage(1);
   };
 
@@ -38,11 +38,9 @@ const Genres = ({
     return () => {
       setGenres({}); // unmounting
     };
+    // eslint-disable-next-line
   },[])
 
-  console.log(genres)
-
- 
 
   return (
     <div className={cl.genres}>
@@ -64,7 +62,7 @@ const Genres = ({
         key={genre.id}
         clickable
         onClick={() => handleAdd(genre)}
-       />
+      />
       ))}
     </div>
   );

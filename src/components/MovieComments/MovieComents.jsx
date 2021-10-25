@@ -21,7 +21,7 @@ const MovieComents = ({movieId}) => {
  
   const [comments, setComments] = useState(getCommentsfromLS())
   const [comment, setComment] = useState('');
-  console.log(comments)
+ 
 
   //form submit
   const handleSubmit = e => {

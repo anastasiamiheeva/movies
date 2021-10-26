@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 .backdrop {
@@ -13,7 +14,7 @@
   display: none;
   object-fit: contain;
   border-radius: 10px;
-  width: 500px;
+  
 }
 
 .about {
@@ -38,7 +39,7 @@
 
 .description {
   display: flex;
-  height: 40%;
+  height: 30%;
   overflow-y: scroll;
   padding: 15px;
   border-radius: 20px;
@@ -52,26 +53,29 @@
 }
 
 @media (min-width: 835px) {
+  .wrap {
+    flex-direction: row;
+  }
+
   .backdrop {
     display: none;
   }
+
   .img {
     display: flex;
     width: 38%;
   }
-  .ContentModal {
-    flex-direction: row;
-    justify-content: space-around;
-    padding: 10px 0;
-  }
+  
   .about {
     width: 58%;
     padding: 0;
     height: 30vw;
   }
+
   .title {
     font-size: 3.5vw;
   }
+
   .description {
     font-size: 16px;
   }

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Genres from '../../components/Genres/Genres';
 import MovieItem from '../../components/MovieItem/MovieItem';
 import Pagination from '../../components/Pagination/Pagination';
-import useGenres from '../../hooks/useGenres';
+import { getModGenres } from '../../utils/genres';
 import cl from "./Movies.module.css"
 
 
@@ -14,14 +14,14 @@ function Movies() {
   const [totalPages, setTotalPages] = useState();
   const [genres, setGenres] = useState([]);
   const [selectedGenres, setSelectedGenres] = useState([]);
-  const genresIdToString = useGenres(selectedGenres)
+  const genresIdToString = getModGenres(selectedGenres)
   
   const fetchMovies = async() => {
    const {data} = await axios.get(
   `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genresIdToString}`)
    setContent(data.results)
    setTotalPages(data.total_pages)
-   
+   console.log(data.results)
   }
 
   useEffect(() => {

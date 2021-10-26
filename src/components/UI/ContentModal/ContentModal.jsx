@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import MoviePage from '../../MoviePage/MoviePage';
 import cl from './ContentModal.module.css'
 
-const ContentModal = ({children, id, media_type}) => {
+const ContentModal = ({children, id, media_type,}) => {
   const [visible, setVisible] = useState(false);
   const [content, setContent] = useState();
   const rootClasses = [cl.page_modal]
@@ -44,7 +44,7 @@ const ContentModal = ({children, id, media_type}) => {
               img={content.poster_path}
               release={content.first_air_date || content.release_date || " "}
               backdrop={content.backdrop_path}
-
+              id={id}
             />
           } 
         </div>

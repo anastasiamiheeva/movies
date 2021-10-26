@@ -1,9 +1,11 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  
 }
+
 
 .App {
   background: #1E262C; 
@@ -11,6 +13,7 @@
   color: #eee;
   padding-top: 130px;
   padding-bottom: 80px;
+  min-width: 350px;
 }
 
 .pageTitle {

@@ -16,7 +16,7 @@ const MovieItem = ({
 }) => {
 
     return (
-      <ContentModal id={id} media_type={media_type}>
+      <ContentModal id={id} media_type={media_type} year={year}>
           <div className={cl.movie}>
             <div>
               <div>

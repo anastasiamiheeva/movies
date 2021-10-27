@@ -30,9 +30,15 @@ const MoviePage = ({
             className={cl.backdrop}
           />
         <div className={cl.about}>
-          <span className={cl.title}>
-            {title} 
-          </span>
+          <div className={cl.title_wrap}>
+            <span className={cl.title}>
+              {title} 
+            </span>
+            <span className={cl.year}>{year}</span>
+            
+            
+          </div>
+          
           <span className={cl.description}>
             {description}
           </span>

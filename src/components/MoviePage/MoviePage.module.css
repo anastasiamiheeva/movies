@@ -29,12 +29,28 @@
   font-weight: 200;
 }
 
+.title_wrap {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-evenly;
+  
+}
+
 .title {
   height: 12%;
   font-size: 5vw;
   display: flex;
   align-items: center;
+  text-align: center;
   justify-content: center;
+  margin-bottom: 10px;
+}
+
+.year {
+  margin-left: 10px;
+  font-size: 4vw;
+  text-align: center;
 }
 
 .description {
@@ -72,8 +88,8 @@
     height: 30vw;
   }
 
-  .title {
-    font-size: 3.5vw;
+  .title, .year {
+    font-size: 3vw;
   }
 
   .description {

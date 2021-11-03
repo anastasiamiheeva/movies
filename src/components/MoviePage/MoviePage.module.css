@@ -55,12 +55,13 @@
 
 .description {
   display: flex;
+  margin-bottom: 10px;
   height: 30%;
   overflow-y: scroll;
   padding: 15px;
-  border-radius: 20px;
+  border-radius: 10px;
   scrollbar-width: thin; 
-  box-shadow: inset 0 0 5px #000000;
+  box-shadow: inset 0 0 5px #000;
   text-align: justify;
 }
 
@@ -85,7 +86,7 @@
   .about {
     width: 58%;
     padding: 0;
-    height: 30vw;
+    height: 33vw;
   }
 
   .title, .year {

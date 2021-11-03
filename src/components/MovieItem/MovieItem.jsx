@@ -1,5 +1,9 @@
 import React, { useState } from "react";
+import { Route, Router, Switch, useHistory } from "react-router";
+import { Link } from "react-router-dom";
 import { img_300, unavailable } from "../../config/config";
+import MoviePage from "../../pages/MoviePage/MoviePage";
+
 import ContentModal from "../UI/ContentModal/ContentModal";
 import cl from './MovieItem.module.css'
 
@@ -14,9 +18,11 @@ const MovieItem = ({
   id,
   media_type,
 }) => {
-
     return (
-      <ContentModal id={id} media_type={media_type}>
+        <Link to={{
+          pathname:`/movies/${id}`,
+          data: [{media_type: media_type}]
+        }}>
           <div className={cl.movie}>
             <div>
               <div>
@@ -44,7 +50,7 @@ const MovieItem = ({
             <div className={cl.title}>{title}</div>
             <div className={cl.year}>{year}</div>
         </div>
-      </ContentModal>
+      </Link>
     )
 }
 

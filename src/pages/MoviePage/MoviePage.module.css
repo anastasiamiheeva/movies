@@ -1,0 +1,83 @@
+
+.page_wrap {
+  padding: 20px;
+  display: flex; 
+  
+  
+}
+
+.about_wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.list_about {
+  list-style: none;
+}
+
+.description {
+  width: 80%;
+}
+
+@media screen and (max-width: 950px) {
+  .fleft {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+
+.left {
+  padding: 20px;
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* .fxRow {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+} */
+
+.flist {
+  width: 48%;
+  line-height: 1.7;
+  font-size: 13px;
+}
+
+
+.fdesc {
+  margin-bottom: 20px;
+  color: #888;
+  font-size: 13px;
+}
+
+.img {
+  width: 300px;
+  margin-right: 20px;
+}
+
+
+
+.imgIn {
+  box-shadow: 0 0 0 1px teal, 2px 3px 3px 0 rgb(0 0 0 / 10%);
+  border-radius: 3px;
+}
+
+.fposter {
+  border-radius: 3px 3px 0 0;
+}
+
+ .imgWide {
+  overflow: hidden;
+  position: relative;
+  background-color: #222;
+  border-radius: 3px 3px 0 0;
+}

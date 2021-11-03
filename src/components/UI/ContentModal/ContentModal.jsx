@@ -44,6 +44,9 @@ const ContentModal = ({children, id, media_type,}) => {
               img={content.poster_path}
               release={content.first_air_date || content.release_date || " "}
               backdrop={content.backdrop_path}
+              production_countries = {content.production_countries}
+              genres = {content.genres}
+              vote_average = {content.vote_average}
               id={id}
             />
           } 

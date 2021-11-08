@@ -17,8 +17,48 @@
 
 .description {
   width: 80%;
+  margin-bottom: 10px;
 }
 
+.overview {
+  margin-bottom: 10px;
+}
+.actors_wrap {
+  display: flex;
+}
+button {
+  background-color: #fff;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 15px;
+}
+
+button:hover {
+  color: #222;
+}
+
+button:focus {
+  outline: none;
+}
+.actors {
+  display: flex;
+  width: 88%;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* .actors > div {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 100%;
+  width: 100%;
+} */
+
+.actor_img {
+  width: 80px;
+}
 @media screen and (max-width: 950px) {
   .fleft {
     padding-left: 10px;

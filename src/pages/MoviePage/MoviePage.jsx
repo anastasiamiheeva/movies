@@ -2,15 +2,21 @@ import React, { useEffect, useState } from 'react';
 import cl from './MoviePage.module.css'
 import { Redirect, useHistory, useParams } from "react-router";
 import axios from 'axios';
-import { img_300, img_500, unavailable } from '../../config/config';
+import { img_300, img_500, noPicture, unavailable } from '../../config/config';
 import { CompareArrowsOutlined } from '@material-ui/icons';
+import YouTubeIcon from "@material-ui/icons/YouTube";
 import MovieComments from '../../components/MovieComments/MovieComents'
+import { Button } from '@material-ui/core';
 
 const MoviePage = (props) => {
-  const history = useHistory()
-  const [content, setContent] = useState();
+  const history = useHistory();
   const {id} = useParams();
-  
+  const [content, setContent] = useState();
+  const [video, setVideo] = useState();
+  const [credits, setCredits] = useState();
+  const [actorsCount, setActorsCount] = useState(0)
+  let activeSlideIndex = 0;
+
   // const media_type = props.location.data[0].media_type
   
   const fetchData = async () => {
@@ -20,11 +26,53 @@ const MoviePage = (props) => {
     setContent(data);
   };
 
+  const fetchVideo = async () => {
+    const { data } = await axios.get(
+      `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
+    );
+    setVideo(data.results[0]?.key);
+  };
+
+  const fetchCredits = async () => {
+    const { data } = await axios.get(
+      `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
+    );
+    setCredits(data.cast);
+    setActorsCount(data.cast.length)
+  };
+
   useEffect(() => {
     fetchData();
+    fetchVideo();
+    fetchCredits()
     // eslint-disable-next-line
   }, []);
-  
+
+
+
+  const goLeft = () => {
+    console.log('left')
+    changeSlide('left')
+  }
+  const goRigth = () => {
+    console.log('right')
+    changeSlide('right')
+  }
+
+  function changeSlide(direction) {
+    if (direction === 'right') {
+      activeSlideIndex++;
+      if(activeSlideIndex === actorsCount) {
+        activeSlideIndex = 0;
+      }
+    } else if (direction === 'left') {
+      activeSlideIndex--
+      if(activeSlideIndex < 0) {
+        activeSlideIndex = setActorsCount(actorsCount - 1);
+      }
+    }
+  }
+  console.log(actorsCount)
   return (
     <>
       {content && 
@@ -36,6 +84,7 @@ const MoviePage = (props) => {
                 <img src={ content.poster_path ? `${img_300}/${content.poster_path}`: unavailable } alt={content.name || content.title}/>
               </div>
             </div>
+            
           </div>
           
         <div className={cl.about_wrap}>
@@ -70,7 +119,38 @@ const MoviePage = (props) => {
             <br />      
           <div className={cl.description}>
             <h2>Overview</h2>
-            <div>{content.overview}</div>
+            <div className={cl.overview}>{content.overview}</div>
+            <Button
+            variant='contained'
+            startIcon={<YouTubeIcon/>}
+            color='secondary'
+            target='_blank'
+            href={`http://www.youtube.com/watch?v=${video}`}
+            
+            >Watch the Trailer</Button>
+            <h2>Actors</h2>
+
+
+            <div className={cl.actors_wrap}>
+              <button onClick={goLeft}><i class="fas fa-arrow-left"></i></button>
+            <div className={cl.actors}>
+                {credits && 
+                  credits.map(item => (
+                    <div key={item.id}>
+                      <img
+                        src={item.profile_path ? `${img_300}/${item.profile_path}` : noPicture}
+                        alt={item?.name}
+                        className={cl.actor_img}
+                      />
+                      <b>{item?.name}</b>
+                    </div>
+                  ))
+                }
+            </div>
+            <button onClick={goRigth}><i class="fas fa-arrow-right"></i></button>
+            </div>
+            
+            
           </div>
         </div>
         

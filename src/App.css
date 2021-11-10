@@ -53,3 +53,12 @@
   color: teal;
 }
 
+
+/*Carousel*/
+
+span[data-area=">"], span[data-area="<"] {
+  color: #ccc;
+  font-size: 18px;
+}
+
+

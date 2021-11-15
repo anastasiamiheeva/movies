@@ -15,6 +15,7 @@ const MoviePage = (props) => {
   const [content, setContent] = useState();
   const [video, setVideo] = useState();
  
+  
   // const media_type = props.location.data[0].media_type
   
   const fetchData = async () => {
@@ -34,9 +35,11 @@ const MoviePage = (props) => {
   useEffect(() => {
     fetchData();
     fetchVideo();
+    
     // eslint-disable-next-line
   }, []);
 
+  
   return (
     <>
       {content && 
@@ -109,7 +112,22 @@ const MoviePage = (props) => {
               </div>
               <Carousel id={id}/>
           </div>
-
+        </div>
+        <div className={cl.video}>
+            <div className={cl.video__title}>
+                <h2> Trailer: {content.name || content.title} (
+              {(
+                content.first_air_date ||
+                content.release_date ||
+                "-----"
+              ).substring(0, 4)}
+              ) </h2>
+            </div>
+            <iframe 
+                src={`https://www.youtube.com/embed/${video}`}
+                width="70%"
+                title="video"
+            ></iframe>
         </div>
       </div>
     }

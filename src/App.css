@@ -55,10 +55,15 @@
 
 
 /*Carousel*/
-
+.alice-carousel__wrapper {
+  box-shadow: inset 0 0 5px #000;
+  border-radius: 10px;
+}
 span[data-area=">"], span[data-area="<"] {
   color: #ccc;
   font-size: 18px;
 }
 
-
+.alice-carousel__prev-btn, .alice-carousel__next-btn {
+  padding: 0 5px;
+}
